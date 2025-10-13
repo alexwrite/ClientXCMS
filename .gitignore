@@ -34,3 +34,4 @@ yarn-error.log
 /src/CTX*
 /views/CTX*
 2025-*.txt
+import-extension.sh
