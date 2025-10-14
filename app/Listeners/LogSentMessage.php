@@ -45,7 +45,7 @@ class LogSentMessage
         $params = [
             'recipient' => $event->message->getTo()[0]->getAddress(),
             'subject' => $event->message->getSubject(),
-            'content' => $event->message->getHtmlBody(),
+            'content' => $event->message->getHtmlBody() ?? $event->message->getTextBody() ?? '',
             'recipient_id' => Customer::whereEmail($event->message->getTo()[0]->getAddress())->first()->id ?? null,
             'template' => $event->data['template'] ?? null,
             'created_at' => Carbon::now(),
