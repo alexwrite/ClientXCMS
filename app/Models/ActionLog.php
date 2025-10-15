@@ -116,6 +116,11 @@ class ActionLog extends Model
 
     const FAILED_LOGIN = 'failed_login';
 
+    // Extensible action registry for addons
+    protected static array $extensionActions = [];
+    protected static array $extensionIcons = [];
+    protected static array $extensionTranslations = [];
+
     const ALL_ACTIONS = [
         self::SETTINGS_UPDATED,
         self::RESOURCE_CREATED,
@@ -145,6 +150,29 @@ class ActionLog extends Model
         self::TWO_FACTOR_RECOVERY_CODES_GENERATED,
         self::FAILED_LOGIN,
     ];
+
+    /**
+     * Register actions from an addon/extension.
+     * This allows addons to register their own actions without modifying the core.
+     *
+     * @param array $actions Array of action keys to register
+     * @param array $icons Array of icon mappings ['action' => 'bi bi-icon']
+     * @param array $translations Array of translation key mappings ['action' => 'addon::lang.key']
+     */
+    public static function registerExtensionActions(array $actions, array $icons = [], array $translations = []): void
+    {
+        self::$extensionActions = array_merge(self::$extensionActions, $actions);
+        self::$extensionIcons = array_merge(self::$extensionIcons, $icons);
+        self::$extensionTranslations = array_merge(self::$extensionTranslations, $translations);
+    }
+
+    /**
+     * Get all actions including core and extension actions.
+     */
+    public static function getAllActions(): array
+    {
+        return array_merge(self::ALL_ACTIONS, self::$extensionActions);
+    }
 
     protected static array $ignoreKeys = [];
 
@@ -224,6 +252,10 @@ class ActionLog extends Model
             case self::TWO_FACTOR_RECOVERY_CODES_GENERATED:
                 return 'bi bi-shield-check';
             default:
+                // Check extension icons
+                if (isset(self::$extensionIcons[$this->action])) {
+                    return self::$extensionIcons[$this->action];
+                }
                 return 'bi bi-question-circle';
         }
     }
@@ -257,6 +289,13 @@ class ActionLog extends Model
     public function getFormattedName()
     {
         $parameters = $this->getParameters();
+
+        // Check if this is an extension action with custom translation
+        if (isset(self::$extensionTranslations[$this->action])) {
+            return __(self::$extensionTranslations[$this->action], $parameters);
+        }
+
+        // Default to core translations
         $action = __("actionslog.actions.{$this->action}", $parameters);
 
         return $action;
