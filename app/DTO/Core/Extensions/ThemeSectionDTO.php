@@ -71,7 +71,7 @@ class ThemeSectionDTO
     {
         $path = $this->json['path'];
         try {
-            if ($cache) {
+            if ($cache && app()->isProduction()) {
                 $cache = app('theme')->getSetting()['sections_html'] ?? collect();
                 if ($cache->has($path)) {
                     return $cache->get($path);
@@ -80,7 +80,6 @@ class ThemeSectionDTO
             if (! view()->exists($path)) {
                 return '';
             }
-
             return view($path, $this->getContextFromUuid())->render();
         } catch (\Exception $e) {
             return '';
@@ -91,9 +90,10 @@ class ThemeSectionDTO
     {
         $path = $this->json['path'];
         $content = File::get(app('view')->getFinder()->find($path));
-        $bannedValues = Section::TAGS_DISABLED;
-
-        return str_replace($bannedValues, '', $content);
+        if (!$this->isProtected()) {
+            return sanitize_content($content);
+        }
+        return $content;
     }
 
     public function isDefault(): bool

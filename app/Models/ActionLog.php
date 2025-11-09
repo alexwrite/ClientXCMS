@@ -252,7 +252,6 @@ class ActionLog extends Model
             case self::TWO_FACTOR_RECOVERY_CODES_GENERATED:
                 return 'bi bi-shield-check';
             default:
-                // Check extension icons
                 if (isset(self::$extensionIcons[$this->action])) {
                     return self::$extensionIcons[$this->action];
                 }
@@ -286,16 +285,13 @@ class ActionLog extends Model
         return $this->hasMany(ActionLogEntries::class);
     }
 
-    public function getFormattedName()
+   public function getFormattedName()
     {
         $parameters = $this->getParameters();
 
-        // Check if this is an extension action with custom translation
         if (isset(self::$extensionTranslations[$this->action])) {
             return __(self::$extensionTranslations[$this->action], $parameters);
         }
-
-        // Default to core translations
         $action = __("actionslog.actions.{$this->action}", $parameters);
 
         return $action;

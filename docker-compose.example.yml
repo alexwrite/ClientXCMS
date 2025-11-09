@@ -7,7 +7,6 @@ x-common-variables: &common-variables
 
 services:
   app:
-    #image: ghcr.io/clientxcms/app:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -21,35 +20,34 @@ services:
       database:
         condition: service_healthy
     environment:
-      <<: *common-variables
-      APP_ENV: "production"
-      APP_TIMEZONE: "Europe/Paris"
-      # LETSENCRYPT_EMAIL : E-mail utilisé lors de la génération du certificat SSL.
-      # À configurer uniquement pour une génération de certificat SSL public.
-      LETSENCRYPT_EMAIL: ""
-      APP_ENVIRONMENT_ONLY: "false"
-      CACHE_DRIVER: "file"
-      SESSION_DRIVER: "file"
-      QUEUE_DRIVER: "database"
-      REDIS_HOST: "127.0.0.1"
-      DB_HOST: "database"
-      DB_PORT: "3306"
-      DB_NAME: "clientxcms"
-      DB_PASSWORD: "clientxcms"
-      MAIL_FROM: "noreply@example.com"
-      MAIL_DRIVER: "smtp"
-      MAIL_HOST: "smtp.exemple.com"
-      MAIL_PORT: "587"
-      MAIL_USERNAME: ""
-      MAIL_PASSWORD: ""
-      MAIL_ENCRYPTION: "true"
-      DEFAULT_LOCALE: "fr_FR"
-      # Veiller à remplir votre ID et votre secret avant le démarrage.
-      OAUTH_CLIENT_ID: ""
-      OAUTH_CLIENT_SECRET: ""
+        APP_URL: "${APP_URL:-http://localhost}"
+        APP_ENV: "${APP_ENV:-production}"
+        APP_DEBUG: "${APP_DEBUG:-true}"
+        APP_TIMEZONE: "${APP_TIMEZONE:-Europe/Paris}"
+        # LETSENCRYPT_EMAIL : E-mail utilisé lors de la génération du certificat SSL.
+        # À configurer uniquement pour une génération de certificat SSL public.
+        LETSENCRYPT_EMAIL: "${LETSENCRYPT_EMAIL:-}"
+        APP_ENVIRONMENT_ONLY: "${APP_ENVIRONMENT_ONLY:-false}"
+        CACHE_DRIVER: "${CACHE_DRIVER:-file}"
+        SESSION_DRIVER: "${SESSION_DRIVER:-file}"
+        QUEUE_DRIVER: "${QUEUE_DRIVER:-database}"
+        REDIS_HOST: "${REDIS_HOST:-127.0.0.1}"
+        DB_HOST: "${DB_HOST:-database}"
+        DB_PORT: "${DB_PORT:-3306}"
+        DB_NAME: "${DB_NAME:-clientxcms}"
+        DB_PASSWORD: "${DB_PASSWORD:-clientxcms}"
+        MAIL_FROM: "${MAIL_FROM:-noreply@example.com}"
+        MAIL_DRIVER: "${MAIL_DRIVER:-smtp}"
+        MAIL_HOST: "${MAIL_HOST:-smtp.exemple.com}"
+        MAIL_PORT: "${MAIL_PORT:-587}"
+        MAIL_USERNAME: "${MAIL_USERNAME:-}"
+        MAIL_PASSWORD: "${MAIL_PASSWORD:-}"
+        MAIL_ENCRYPTION: "${MAIL_ENCRYPTION:-true}"
+        DEFAULT_LOCALE: "${DEFAULT_LOCALE:-fr_FR}"
+        OAUTH_CLIENT_ID: "${OAUTH_CLIENT_ID:-XXXX}"
+        OAUTH_CLIENT_SECRET: "${OAUTH_CLIENT_SECRET:-XXXX}"
     networks:
-      - clientxcms-network
-
+        - clientxcms-network
   database:
     image: mariadb:10.5
     restart: always
