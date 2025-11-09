@@ -34,7 +34,7 @@ yarn-error.log
 /src/CTX*
 /views/CTX*
 2025-*.txt
-import-extension.sh
+*.sh
 *.md
 /resources/themes/*/views/sections_copy/*
 docker-compose.yml
