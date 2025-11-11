@@ -64,7 +64,7 @@ class ActionsLogController extends AbstractCrudController
 
     protected function getIndexFilters(): array
     {
-        return collect(ActionLog::getAllActions())->mapWithKeys(function ($action) {
+        return collect(ActionLog::ALL_ACTIONS)->mapWithKeys(function ($action) {
             return [$action => ucfirst(str_replace('_', ' ', $action))];
         })->toArray();
     }
