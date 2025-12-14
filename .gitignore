@@ -38,3 +38,4 @@ yarn-error.log
 /data/*
 docker-compose.yml
 *.sh
+laravel-with-extensions.code-workspace
