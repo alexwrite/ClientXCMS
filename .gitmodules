@@ -4,3 +4,6 @@
 [submodule ".devcontainer"]
 	path = .devcontainer
 	url = git@github.com:alexwrite/laravel-devcontainer-clientxcms.git
+[submodule ".specify"]
+	path = .specify
+	url = git@github.com:alexwrite/.specify-clientxcms.git
