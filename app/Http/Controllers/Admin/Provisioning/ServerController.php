@@ -41,7 +41,7 @@ class ServerController extends AbstractCrudController
 
     protected array $labels = [
         'pterodactyl' => ['Client API', 'Application API'],
-        'pelican' => ['Client API', 'Application API'],
+        'pelican' => ['Application API', 'Client API'],
         'wisp' => ['Client API', 'Application API'],
         'plesk' => ['Username', 'Password'],
         'virtualizor' => ['Key', 'Password'],
