@@ -34,6 +34,7 @@ use App\Events\Resources\ResourceDeletedEvent;
 use App\Events\Resources\ResourceUpdatedEvent;
 use App\Listeners\Core\CreateServiceListener;
 use App\Listeners\Core\LastCronRunSaved;
+use App\Listeners\Core\IssueInvoice;
 use App\Listeners\Core\RenewServiceListerner;
 use App\Listeners\Core\SendInvoiceNotification;
 use App\Listeners\Core\WebhookNotification;
@@ -90,6 +91,7 @@ class EventServiceProvider extends ServiceProvider
             WebhookNotification::class,
         ],
         InvoiceCreated::class => [
+            IssueInvoice::class,
             SendInvoiceNotification::class,
         ],
         CheckoutCompletedEvent::class => [

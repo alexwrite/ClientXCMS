@@ -76,6 +76,11 @@ class InvoiceService
         if ($basket->getMetadata('invoice') != null) {
             $invoice = Invoice::find($basket->getMetadata('invoice'));
             if ($invoice != null) {
+                if ($invoice->isElectronicallyLocked()) {
+                    $invoice->update(['paymethod' => $gateway->uuid]);
+
+                    return $invoice;
+                }
                 $invoice->update([
                     'customer_id' => $basket->user_id,
                     'due_date' => now()->addDays(7),
@@ -90,6 +95,8 @@ class InvoiceService
                 ]);
                 $invoice->items()->delete();
                 self::createInvoiceItemsFromBasket($basket, $invoice);
+
+                event(new InvoiceCreated($invoice));
 
                 return $invoice;
             }
@@ -290,6 +297,7 @@ class InvoiceService
             'notes' => $description,
         ]);
         self::appendServiceOnExistingInvoice($service, $invoice, $billing ?? $service->billing);
+        event(new InvoiceCreated($invoice));
 
         return $invoice;
     }
