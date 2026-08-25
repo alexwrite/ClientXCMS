@@ -22,6 +22,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\ViewException;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Throwable;
@@ -59,6 +60,12 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
+        // Let Laravel turn validation failures into redirects (or 422 JSON
+        // responses) before the generic branded 500-page handling below.
+        if ($exception instanceof ValidationException) {
+            return parent::render($request, $exception);
+        }
+
         if ($exception instanceof ThrottleRequestsException && $request->routeIs('front.profile.export')) {
             $retryAfter = max(1, (int) ($exception->getHeaders()['Retry-After'] ?? 60));
 

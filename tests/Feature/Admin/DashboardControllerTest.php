@@ -23,6 +23,9 @@ class DashboardControllerTest extends TestCase
 
     public function test_cron_failure_is_visible_and_escaped_for_admin_with_logs_permission()
     {
+        app('translator')->addLines([
+            'admin.dashboard.cron_task_failed' => 'La tâche planifiée « :task » a échoué le :date. Erreur : :message',
+        ], 'fr');
         Setting::updateSettings([ScheduledTasksHealthService::HEARTBEAT_SETTING => now()], null, false);
         ScheduledTaskRun::create([
             'task_name' => 'services:renewals',

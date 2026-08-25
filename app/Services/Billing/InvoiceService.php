@@ -355,6 +355,10 @@ class InvoiceService
 
     public static function appendServiceOnExistingInvoice(Service $service, Invoice $invoice, ?string $billing = null, ?ProductPriceDTO $price = null)
     {
+        if ($invoice->isElectronicallyLocked()) {
+            throw new \LogicException('An issued invoice is immutable; create a credit note instead.');
+        }
+
         if ($price) {
             $price = $price->price_ht;
         } elseif ($service->discountAmount() != 0) {

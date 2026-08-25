@@ -23,7 +23,11 @@ class FiscalProfileService
         $legalName = array_key_exists('legal_name', $input)
             ? $input['legal_name']
             : ($input['company_name'] ?? $customer->legal_name ?? $customer->company_name);
-        $customerType = $input['customer_type'] ?? (filled($input['company_name'] ?? null) ? Customer::TYPE_BUSINESS : $customer->customer_type);
+        $customerType = $input['customer_type'] ?? (
+            filled($input['company_name'] ?? null)
+                ? Customer::TYPE_BUSINESS
+                : ($customer->customer_type ?? Customer::TYPE_INDIVIDUAL)
+        );
         $input = array_merge([
             'customer_type' => $customerType,
             'tax_subject_status' => $customer->tax_subject_status ?? Customer::TAX_STATUS_UNKNOWN,
