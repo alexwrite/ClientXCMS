@@ -2,7 +2,7 @@
 $profileService = app(\App\Services\Billing\FiscalProfileService::class);
 $profileStatus = $profileService->status($customer);
 @endphp
-<form class="card space-y-6" method="POST" action="{{ route('admin.customers.fiscal-profile.update', $customer) }}">
+<form class="card space-y-3" method="POST" action="{{ route('admin.customers.fiscal-profile.update', $customer) }}">
     @csrf
     @method('PUT')
 
