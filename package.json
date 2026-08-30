@@ -1,4 +1,5 @@
 {
+    "name": "clientxcms",
     "private": true,
     "type": "module",
     "scripts": {
