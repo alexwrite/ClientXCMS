@@ -693,14 +693,14 @@
                         @endif
                     @if (staff_has_permission('admin.show_customers') && $item->customer)
 
-                        <a class="btn bg-blue-600 w-full text-left mb-2" href="{{ route('admin.customers.show', ['customer' => $item->customer]) }}">
+                        <a class="btn btn-info w-full text-left mb-2" href="{{ route('admin.customers.show', ['customer' => $item->customer]) }}">
                             <i class="bi bi-people mr-2"></i>
                             {{ __('provisioning.admin.services.show.customerbtn') }}
                             <i class="bi bi-box-arrow-up-right mr-auto"></i>
                         </a>
                     @endif
                     @if (staff_has_permission('admin.manage_services'))
-                        <button class="btn bg-red-500 mb-2 w-full text-left" data-hs-overlay="#cancel-overlay">
+                        <button class="btn btn-danger mb-2 w-full text-left" data-hs-overlay="#cancel-overlay">
                             <i class="bi bi-trash2 mr-2"></i>
                             @if ($item->isPending())
                                 {{ __('provisioning.admin.services.cancel.delivery') }}

@@ -1,34 +1,40 @@
 
-.btn-primary {
-    @apply rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+.btn-primary, .prose a.btn-primary {
+    @apply rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
 }
-.btn-secondary {
-    @apply rounded-md bg-gray-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200;
+.btn-secondary, .prose a.btn-secondary {
+    @apply rounded-md bg-gray-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200;
 }
-.btn-danger {
-    @apply rounded-md bg-red-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
+.btn-danger, .prose a.btn-danger {
+    @apply rounded-md bg-red-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
 }
-.btn-info {
-    @apply rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
+.btn-info, .prose a.btn-info {
+    @apply rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
 }
-.btn-warning {
-    @apply rounded-md bg-yellow-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600;
+.btn-success, .prose a.btn-success {
+    @apply rounded-md bg-emerald-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700;
 }
-button.btn-primary:hover, a.btn-primary:hover, .prose a.btn-primary:hover {
+/* yellow-700 and not yellow-600: white text on yellow-600 only reaches 2.9:1, below the 4.5:1 WCAG AA floor. */
+.btn-warning, .prose a.btn-warning {
+    @apply rounded-md bg-yellow-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-700;
+}
+.btn-primary:hover, .prose a.btn-primary:hover {
     @apply bg-indigo-700;
 }
-.button.btn-info:hover, a.btn-info:hover, .prose a.btn-info:hover {
+.btn-info:hover, .prose a.btn-info:hover {
     @apply bg-blue-700;
 }
-button.btn-secondary:hover,a.btn-secondary:hover, .prose a.btn-secondary:hover {
+.btn-secondary:hover, .prose a.btn-secondary:hover {
     @apply bg-gray-700;
 }
-button.btn-danger:hover, a.btn-danger:hover, .prose a.btn-danger:hover {
+.btn-danger:hover, .prose a.btn-danger:hover {
     @apply bg-red-700;
 }
-
-button.btn-warning:hover, a.btn-warning:hover, .prose a.btn-warning:hover {
-    @apply bg-yellow-700;
+.btn-success:hover, .prose a.btn-success:hover {
+    @apply bg-emerald-800;
+}
+.btn-warning:hover, .prose a.btn-warning:hover {
+    @apply bg-yellow-800;
 }
 
 .btn-action-with-icon {
@@ -69,9 +75,6 @@ button.btn-warning:hover, a.btn-warning:hover, .prose a.btn-warning:hover {
 /**
 Darkmode
  */
-.dark .btn-primary:hover {
-    @apply bg-indigo-700
-}
 .dark .btn-icon2 {
     @apply text-white border-gray-700
 }
@@ -83,9 +86,6 @@ Darkmode
 }
 .dark .btn-primary:focus {
     @apply outline-none ring-1 ring-gray-600
-}
-.dark .btn-info:hover {
-    @apply bg-blue-700
 }
 .dark .btn-icon {
     @apply border-gray-700 text-gray-400
