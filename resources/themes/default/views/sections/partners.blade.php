@@ -4,25 +4,25 @@
         <p class="mt-1 text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in arcu turpis. Quisque nunc dui, imperdiet a dolor et, venenatis rutrum lorem. Vivamus eget nisl nulla. Mauris porttitor semper velit. Nullam turpis velit,</p>
     </div>
     <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-4 lg:grid-cols-6 dark:text-gray-400">
-        <a href="#" class="flex justify-center items-center">
-            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10">
-        </a>
-        <a href="#" class="flex justify-center items-center">
-            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10">
-        </a>
-        <a href="#" class="flex justify-center items-center">
-            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10">
-        </a>
-        <a href="#" class="flex justify-center items-center">
-            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10">
-        </a>
+        <div class="flex justify-center items-center">
+            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10" alt="">
+        </div>
+        <div class="flex justify-center items-center">
+            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10" alt="">
+        </div>
+        <div class="flex justify-center items-center">
+            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10" alt="">
+        </div>
+        <div class="flex justify-center items-center">
+            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10" alt="">
+        </div>
 
-        <a href="#" class="flex justify-center items-center">
-            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10">
-        </a>
+        <div class="flex justify-center items-center">
+            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10" alt="">
+        </div>
 
-        <a href="#" class="flex justify-center items-center">
-            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10">
-        </a>
+        <div class="flex justify-center items-center">
+            <img src="https://clientxcms.com/assets/images/logo/LogoBlueText.png" class="h-10" alt="">
+        </div>
     </div>
 </div>

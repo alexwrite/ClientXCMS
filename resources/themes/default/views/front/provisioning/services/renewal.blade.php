@@ -183,7 +183,7 @@
                                         <div class="flex items-center h-5">
                                             <input id="months-{{ $pricing->recurring }}" @if($service->billing == $pricing->recurring) checked="checked" @endif name="billing" value="{{ $pricing->recurring }}" type="radio" class="border-gray-200 rounded-full disabled:opacity-50 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="months-{{ $pricing->recurring }}" class="ms-3 block w-full text-sm text-gray-600 dark:text-gray-500">
+                                        <label for="months-{{ $pricing->recurring }}" class="ms-3 block w-full text-sm text-gray-600 dark:text-gray-400">
                                             {{ $pricing->recurring()['months'] == 0.5 ? 1 : $pricing->recurring()['months'] }} {{ $pricing->recurring()['months'] == 0.5 ? __('global.week') : __('global.month') }} - {{ $pricing->pricingMessage(false) }}
                                         </label>
                                     </div>

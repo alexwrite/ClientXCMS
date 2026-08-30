@@ -110,7 +110,7 @@
                                     </span>
                                 @else
                                     <span
-                                        class="py-1 px-2 inline-flex items-center gap-x-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full dark:bg-gray-500/10 dark:text-gray-500">
+                                        class="py-1 px-2 inline-flex items-center gap-x-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full dark:bg-gray-500/10 dark:text-gray-400">
                                         {{ __('global.states.inactive') }}
                                     </span>
                                 @endif

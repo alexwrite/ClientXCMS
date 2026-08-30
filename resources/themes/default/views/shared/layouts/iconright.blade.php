@@ -19,7 +19,7 @@
 
 
 
-<a href="{{ route('front.store.basket.show') }}" class="btn-icon2">
+<a href="{{ route('front.store.basket.show') }}" class="btn-icon2" aria-label="{{ __('store.basket.title') }}">
     <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
          stroke-linejoin="round" aria-hidden="true">
@@ -33,7 +33,7 @@
     @endif
 </a>
 @if (setting('theme_switch_mode') == 'both')
-    <button id="dark-mode-btn"  data-url="{{ route('darkmode.switch') }}"
+    <button id="dark-mode-btn"  data-url="{{ route('darkmode.switch') }}" aria-label="{{ __('global.darkmode') }}"
             class="w-9 h-9 relative inline-flex justify-center items-center text-sm font-semibold rounded-lg text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
         <svg class="@if (!is_darkmode()) hidden @endif flex-shrink-0 w-4 h-4" id="dark-mode-sun"
              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -70,7 +70,7 @@
 </div>
 @if (auth('web')->guest())
 
-    <a href="{{ route('login') }}" class="btn-icon2">
+    <a href="{{ route('login') }}" class="btn-icon2" aria-label="{{ __('auth.login.btn') }}">
         @include('shared.icons.user')
     </a>
 @else

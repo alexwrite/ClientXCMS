@@ -106,7 +106,7 @@
                                                         </span>
                                                     @endif
                                                 @else
-                                                    <span class="text-xs text-gray-400 dark:text-gray-500">--</span>
+                                                    <span class="text-xs text-gray-400 dark:text-gray-400">--</span>
                                                 @endif
                                             </td>
                                             <td class="h-px w-px whitespace-nowrap px-6 py-2">

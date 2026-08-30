@@ -5,7 +5,6 @@
 @import 'provisioning.css';
 @import 'bootstrap-icons/font/bootstrap-icons.min.css';
 @import 'flatpickr/dist/flatpickr.min.css';
-/* Preline traps Tab per trigger; the panel has two (open and close), so the trap ran twice and skipped every other link. It is a nav, not a modal: native tab order is the correct behaviour. */
 #mobile-menu {
     --tab-accessibility-limited: false;
 }
