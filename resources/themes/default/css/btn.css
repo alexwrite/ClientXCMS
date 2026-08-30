@@ -1,102 +1,103 @@
+@layer components {
+    .btn-primary, .prose a.btn-primary {
+        @apply rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+    }
+    .btn-secondary, .prose a.btn-secondary {
+        @apply rounded-md bg-gray-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200;
+    }
+    .btn-danger, .prose a.btn-danger {
+        @apply rounded-md bg-red-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
+    }
+    .btn-info, .prose a.btn-info {
+        @apply rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
+    }
+    .btn-success, .prose a.btn-success {
+        @apply rounded-md bg-emerald-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700;
+    }
+    /* yellow-700 and not yellow-600: white text on yellow-600 only reaches 2.9:1, below the 4.5:1 WCAG AA floor. */
+    .btn-warning, .prose a.btn-warning {
+        @apply rounded-md bg-yellow-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-700;
+    }
+    .btn-primary:hover, .prose a.btn-primary:hover {
+        @apply bg-indigo-700;
+    }
+    .btn-info:hover, .prose a.btn-info:hover {
+        @apply bg-blue-700;
+    }
+    .btn-secondary:hover, .prose a.btn-secondary:hover {
+        @apply bg-gray-700;
+    }
+    .btn-danger:hover, .prose a.btn-danger:hover {
+        @apply bg-red-700;
+    }
+    .btn-success:hover, .prose a.btn-success:hover {
+        @apply bg-emerald-800;
+    }
+    .btn-warning:hover, .prose a.btn-warning:hover {
+        @apply bg-yellow-800;
+    }
 
-.btn-primary, .prose a.btn-primary {
-    @apply rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
-}
-.btn-secondary, .prose a.btn-secondary {
-    @apply rounded-md bg-gray-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200;
-}
-.btn-danger, .prose a.btn-danger {
-    @apply rounded-md bg-red-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
-}
-.btn-info, .prose a.btn-info {
-    @apply rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
-}
-.btn-success, .prose a.btn-success {
-    @apply rounded-md bg-emerald-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700;
-}
-/* yellow-700 and not yellow-600: white text on yellow-600 only reaches 2.9:1, below the 4.5:1 WCAG AA floor. */
-.btn-warning, .prose a.btn-warning {
-    @apply rounded-md bg-yellow-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-700;
-}
-.btn-primary:hover, .prose a.btn-primary:hover {
-    @apply bg-indigo-700;
-}
-.btn-info:hover, .prose a.btn-info:hover {
-    @apply bg-blue-700;
-}
-.btn-secondary:hover, .prose a.btn-secondary:hover {
-    @apply bg-gray-700;
-}
-.btn-danger:hover, .prose a.btn-danger:hover {
-    @apply bg-red-700;
-}
-.btn-success:hover, .prose a.btn-success:hover {
-    @apply bg-emerald-800;
-}
-.btn-warning:hover, .prose a.btn-warning:hover {
-    @apply bg-yellow-800;
-}
+    .btn-action-with-icon {
+        @apply py-1 px-2 inline-flex items-center gap-2 rounded-lg border font-medium bg-white text-gray-700 shadow-sm align-middle transition-all text-sm;
+    }
+    .btn-action-with-icon:hover {
+        @apply bg-gray-50;
+    }
+    .btn-action-with-icon:focus {
+        @apply outline-none ring-2 ring-offset-white focus:ring-indigo-600;
+    }
+    .btn-product {
+        @apply mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-indigo-400 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:pointer-events-none
+    }
 
-.btn-action-with-icon {
-    @apply py-1 px-2 inline-flex items-center gap-2 rounded-lg border font-medium bg-white text-gray-700 shadow-sm align-middle transition-all text-sm;
-}
-.btn-action-with-icon:hover {
-    @apply bg-gray-50;
-}
-.btn-action-with-icon:focus {
-    @apply outline-none ring-2 ring-offset-white focus:ring-indigo-600;
-}
-.btn-product {
-    @apply mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-indigo-400 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:pointer-events-none
-}
+    .btn-product-pinned {
+        @apply mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:pointer-events-none
+    }
+    .btn-icon {
+        @apply w-9 h-9 mr-2 relative inline-flex justify-center items-center text-sm font-semibold rounded-lg border;
+    }
+    .btn-icon:disabled {
+        @apply opacity-50 pointer-events-none;
+    }
+    .btn-icon:hover {
+        @apply bg-gray-100;
+    }
+    .btn-icon2 {
+        @apply w-9 h-9 relative inline-flex justify-center items-center text-sm font-semibold rounded-lg text-gray-800 z-20;
+    }
+    .btn-icon2:hover {
+        @apply bg-gray-100;
+    }
+    .btn-icon2:disabled {
+        @apply opacity-50 pointer-events-none;
+    }
 
-.btn-product-pinned {
-    @apply mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:pointer-events-none
-}
-.btn-icon {
-    @apply w-9 h-9 mr-2 relative inline-flex justify-center items-center text-sm font-semibold rounded-lg border;
-}
-.btn-icon:disabled {
-    @apply opacity-50 pointer-events-none;
-}
-.btn-icon:hover {
-    @apply bg-gray-100;
-}
-.btn-icon2 {
-    @apply w-9 h-9 relative inline-flex justify-center items-center text-sm font-semibold rounded-lg text-gray-800 z-20;
-}
-.btn-icon2:hover {
-    @apply bg-gray-100;
-}
-.btn-icon2:disabled {
-    @apply opacity-50 pointer-events-none;
-}
+    /**
+    Darkmode
+     */
+    .dark .btn-icon2 {
+        @apply text-white border-gray-700
+    }
+    .dark .btn-icon2:hover {
+        @apply bg-gray-700
+    }
+    .dark .btn-icon2:focus {
+        @apply outline-none ring-1 ring-gray-600
+    }
+    .dark .btn-primary:focus {
+        @apply outline-none ring-1 ring-gray-600
+    }
+    .dark .btn-icon {
+        @apply border-gray-700 text-gray-400
+    }
 
-/**
-Darkmode
- */
-.dark .btn-icon2 {
-    @apply text-white border-gray-700
-}
-.dark .btn-icon2:hover {
-    @apply bg-gray-700
-}
-.dark .btn-icon2:focus {
-    @apply outline-none ring-1 ring-gray-600
-}
-.dark .btn-primary:focus {
-    @apply outline-none ring-1 ring-gray-600
-}
-.dark .btn-icon {
-    @apply border-gray-700 text-gray-400
-}
-
-.dark .btn-action-with-icon {
-    @apply bg-slate-900 border-gray-700 text-gray-400
-}
-.dark .btn-action-with-icon:hover {
-    @apply bg-slate-800 text-white
-}
-.dark .btn-action-with-icon:focus {
-    @apply ring-offset-gray-800
+    .dark .btn-action-with-icon {
+        @apply bg-slate-900 border-gray-700 text-gray-400
+    }
+    .dark .btn-action-with-icon:hover {
+        @apply bg-slate-800 text-white
+    }
+    .dark .btn-action-with-icon:focus {
+        @apply ring-offset-gray-800
+    }
 }
