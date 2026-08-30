@@ -28,7 +28,7 @@
     {!! app('seo')->head('client', $meta_append ?? null) !!}
     {!! app('seo')->favicon('client') !!}
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body class="bg-gray-50  {{is_darkmode() ? 'dark' : '' }}">
