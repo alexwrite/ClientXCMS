@@ -39,14 +39,14 @@
     <main id="content" role="main" class="shrink-0">
         <div class="overflow-hidden">
             <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full py-2.5 sm:py-4 bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-gray-800 dark:border-gray-700 print:hidden">
-                <nav class="max-w-7xl flex basis-full items-center mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
-                    <div class="me-5 md:me-8">
+                <nav class="max-w-7xl flex min-w-0 basis-full items-center mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+                    <div class="min-w-0 flex-1 me-3 sm:me-5 md:me-8">
                         @if (setting('theme_header_logo', false))
-                            <a class="flex-none text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/" aria-label="{{ setting('app_name') }}">
-                                <img class="mx-auto h-10 w-auto" src="{{ setting('app_logo_text', asset('images/logo.png')) }}" alt="{{ setting('app_name') }}">
+                            <a class="block text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/" aria-label="{{ setting('app_name') }}">
+                                <img class="mx-auto h-10 w-auto max-w-full" src="{{ setting('app_logo_text', asset('images/logo.png')) }}" alt="{{ setting('app_name') }}">
                             </a>
                         @else
-                            <a class="flex-none text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/" aria-label="{{ setting('app_name') }}">{{ setting('app_name') }}</a>
+                            <a class="block truncate text-base font-semibold sm:text-xl dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/" aria-label="{{ setting('app_name') }}">{{ setting('app_name') }}</a>
                         @endif
                     </div>
                     <div class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full fixed top-0 start-0 transition-all duration-300 transform h-full max-w-xs w-full z-[60] bg-white border-e basis-full grow sm:order-2 sm:static sm:block sm:h-auto sm:max-w-none sm:w-auto sm:border-r-transparent sm:transition-none sm:translate-x-0 sm:z-40 sm:basis-auto dark:bg-gray-800 dark:border-r-gray-700 sm:dark:border-r-transparent sm:block" tabindex="-1">
@@ -62,8 +62,8 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
-                        <div class="flex flex-row items-center justify-end gap-2">
+                    <div class="flex flex-none items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+                        <div class="flex flex-row items-center justify-end gap-1 sm:gap-2">
                             @include('shared.layouts.iconright')
                         </div>
 
