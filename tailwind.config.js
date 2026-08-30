@@ -60,6 +60,13 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                primary: {
+                    light: primaryColors['100'],
+                    DEFAULT: primaryColors['600'],
+                    dark: primaryColors['700'],
+                },
+            },
 
             fontFamily: {
                 sans: [

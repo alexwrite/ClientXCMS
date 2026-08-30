@@ -8,37 +8,59 @@
         @apply text-white no-underline;
     }
 
+    .btn-primary, .btn-primary:hover {
+        @apply bg-indigo-600;
+    }
+    .btn-secondary, .btn-secondary:hover {
+        @apply bg-gray-600;
+    }
+    .btn-danger, .btn-danger:hover {
+        @apply bg-red-600;
+    }
+    .btn-info, .btn-info:hover {
+        @apply bg-blue-600;
+    }
+    .btn-success, .btn-success:hover {
+        @apply bg-emerald-700;
+    }
+    .btn-warning, .btn-warning:hover {
+        @apply bg-yellow-700;
+    }
+
     .btn-primary {
-        @apply bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+        @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
     }
     .btn-secondary {
-        @apply bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600;
+        @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600;
     }
     .btn-danger {
-        @apply bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
+        @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
     }
     .btn-info {
-        @apply bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
+        @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
     }
     .btn-success {
-        @apply bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700;
+        @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700;
     }
     .btn-warning {
-        @apply bg-yellow-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-700;
+        @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-700;
     }
 
     .btn-product, .btn-product-pinned {
         @apply mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white no-underline transition-shadow duration-150 disabled:opacity-50 disabled:pointer-events-none;
     }
-    .btn-product {
+    .btn-product, .btn-product:hover {
         @apply bg-indigo-600;
     }
-    .btn-product-pinned {
+    .btn-product-pinned, .btn-product-pinned:hover {
         @apply bg-indigo-700;
     }
 
     .btn-addon {
-        @apply w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 rounded-e-md border border-transparent bg-blue-600 text-sm font-semibold text-white no-underline transition-shadow duration-150 disabled:opacity-50 disabled:pointer-events-none;
+        @apply w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 rounded-e-md border border-transparent text-sm font-semibold text-white no-underline transition-shadow duration-150 disabled:opacity-50 disabled:pointer-events-none;
+    }
+    .btn-addon, .btn-addon:hover {
+        @apply bg-blue-600;
     }
 
     .btn-primary-soft, .prose a.btn-primary-soft {
