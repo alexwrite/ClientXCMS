@@ -39,10 +39,10 @@
   <a
     href="https://clientxcms.com/client/support"
     aria-label="CLIENTXCMS"
-    class="flex-none text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+    class="flex-none text-base font-semibold sm:text-xl dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
   >
     CLIENTXCMS
-    <span class="bg-gray-100 text-xs text-gray-500 font-semibold rounded-full py-1 px-2 dark:bg-gray-700 dark:text-gray-400 hs-tooltip-toggle hs-tooltip inline-block relative">
+    <span class="bg-gray-100 text-xs text-gray-500 font-semibold rounded-full py-1 px-2 dark:bg-gray-700 dark:text-gray-400 hs-tooltip-toggle hs-tooltip hidden sm:inline-block relative">
       v{{ ctx_version() }}
         @if ($appIsGit)
     <span
@@ -58,8 +58,8 @@
   @endif
     </span>
   </a>
-        <div class="w-full flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
-            <div class="w-full flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+        <div class="flex min-w-0 flex-1 items-center justify-end gap-x-2 ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+            <div class="flex min-w-0 flex-1 items-center justify-end gap-x-2 ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
                 <div class="sm:hidden">
                     <button id="mobileSearchButton" type="button" class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
                         <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
