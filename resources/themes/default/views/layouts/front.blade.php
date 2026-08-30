@@ -66,6 +66,23 @@
                                 </a>
                             @endforeach
                         </div>
+                        @auth('web')
+                            <div class="mt-2 border-t px-2 pt-2 sm:hidden dark:border-gray-700">
+                                @foreach(\App\Http\Navigation\ClientNavigationMenu::getItems() as $item)
+                                    <a class="flex min-h-11 items-center gap-x-3.5 rounded-lg px-3 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700" href="{{ route($item['route']) }}">
+                                        <i class="{{ $item['icon'] }}"></i> {{ $item['name'] }}
+                                    </a>
+                                @endforeach
+                            </div>
+                            <div class="mt-2 border-t px-2 pt-2 pb-4 sm:hidden dark:border-gray-700">
+                                <p class="px-3 pb-1 text-xs text-gray-500 dark:text-gray-400">{{ __('auth.signed_in_as') }}</p>
+                                <p class="truncate px-3 pb-2 text-sm font-medium text-gray-800 dark:text-gray-300">{{ auth('web')->user()->email }}</p>
+                                <button type="submit" form="logout-form" class="flex min-h-11 w-full items-center gap-x-3.5 rounded-lg px-3 text-sm text-gray-800 hover:bg-red-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9"/></svg>
+                                    {{ __('client.logout') }}
+                                </button>
+                            </div>
+                        @endauth
                     </div>
 
                     <div class="flex flex-none items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
