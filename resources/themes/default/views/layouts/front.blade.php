@@ -52,7 +52,7 @@
                     <div id="mobile-menu" class="hs-overlay hs-overlay-open:translate-x-0 translate-x-full hidden fixed top-0 end-0 transition-all duration-300 transform h-full w-full z-[60] overflow-y-auto bg-white border-s basis-full grow sm:order-2 sm:static sm:block sm:h-auto sm:w-auto sm:overflow-visible sm:border-s-transparent sm:transition-none sm:translate-x-0 sm:z-40 sm:basis-auto dark:bg-gray-800 dark:border-s-gray-700 sm:dark:border-s-transparent" tabindex="-1">
                         <div class="flex items-center justify-between border-b px-4 py-3 sm:hidden dark:border-gray-700">
                             <span class="truncate font-semibold text-gray-800 dark:text-white">{{ setting('app_name') }}</span>
-                            <button type="button" class="btn-icon2" data-hs-overlay="#mobile-menu" aria-label="{{ __('a11y.close_menu') }}">
+                            <button type="button" class="btn-icon2 size-11 sm:size-9" data-hs-overlay="#mobile-menu" aria-label="{{ __('a11y.close_menu') }}">
                                 <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                             </button>
                         </div>
@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="sm:hidden">
-                            <button type="button" class="size-9 flex justify-center items-center text-sm font-semibold rounded-lg text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 p-1" data-hs-overlay="#mobile-menu" aria-controls="mobile-menu" aria-label="{{ __('a11y.open_menu') }}">
+                            <button type="button" class="size-11 sm:size-9 flex justify-center items-center text-sm font-semibold rounded-lg text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 p-1" data-hs-overlay="#mobile-menu" aria-controls="mobile-menu" aria-label="{{ __('a11y.open_menu') }}">
                                 <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
                             </button>
                         </div>
