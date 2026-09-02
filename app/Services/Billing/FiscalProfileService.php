@@ -178,7 +178,13 @@ class FiscalProfileService
                 'siren' => setting('billing_siren'),
                 'siret' => setting('billing_siret'),
                 'vat_number' => setting('billing_vat_number'),
-                'address' => setting('app_address'),
+                'address' => [
+                    'address' => setting('billing_address', setting('app_address')),
+                    'address2' => setting('billing_address2'),
+                    'zipcode' => setting('billing_zipcode'),
+                    'city' => setting('billing_city'),
+                    'country' => setting('billing_country', 'FR'),
+                ],
             ],
             'buyer' => [
                 'type' => $customer->customer_type,

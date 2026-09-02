@@ -26,6 +26,7 @@ use App\DTO\Admin\Dashboard\IntelligentSearchDTO;
 use App\Models\Admin\Permission;
 use App\Models\Billing\Invoice;
 use App\Models\Helpdesk\SupportTicket;
+use App\Services\Core\QueueHealthService;
 use App\Services\Core\ScheduledTasksHealthService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -156,6 +157,22 @@ class DashboardController
                     'date' => $failure->executed_at->isoFormat('LLL'),
                     'message' => $failure->error_message,
                 ]);
+            }
+
+            $queue = app(QueueHealthService::class)->summary();
+            if ($queue['manageable']) {
+                if ($queue['heartbeat_stale']) {
+                    $heathcheck['red'][] = __('admin.dashboard.queue_worker_inactive');
+                }
+                if ($queue['blocked'] > 0) {
+                    $heathcheck['red'][] = __('admin.dashboard.queue_jobs_blocked', ['count' => $queue['blocked']]);
+                }
+                if ($queue['stale_reserved'] > 0) {
+                    $heathcheck['red'][] = __('admin.dashboard.queue_jobs_reserved', ['count' => $queue['stale_reserved']]);
+                }
+                if ($queue['failed'] > 0) {
+                    $heathcheck['red'][] = __('admin.dashboard.queue_jobs_failed', ['count' => $queue['failed']]);
+                }
             }
         }
         $license = \App\Core\License\LicenseCache::get();

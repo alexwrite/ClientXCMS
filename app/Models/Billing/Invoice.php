@@ -578,7 +578,7 @@ class Invoice extends Model implements SupportRelateItemInterface
      * (FR: CGI art. 289, EU: similar wording across member states).
      *
      * Signature is kept identical so callers do not need to change. The
-     * `$add` parameter is now ignored (no longer necessary — the
+     * `$add` parameter is now ignored (no longer necessary - the
      * counter already guarantees uniqueness) but preserved for source
      * compatibility with any extension that calls the method.
      */

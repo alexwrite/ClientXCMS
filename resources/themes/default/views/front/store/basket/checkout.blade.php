@@ -149,7 +149,7 @@
                                             $checkoutCustomer = auth('web')->user();
                                             $fiscalStatus = app(\App\Services\Billing\FiscalProfileService::class)->status($checkoutCustomer);
                                         @endphp
-                                        <section class="mt-5 rounded-xl bg-gray-50/60 dark:bg-gray-800/40">
+                                        <section class="mt-5 rounded-xl">
                                     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                                         <div class="flex items-start gap-3">
                                             <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-300">

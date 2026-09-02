@@ -196,7 +196,7 @@
     </nav>
 
     <div class="w-full pt-10 dark:bg-gray-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-        <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="w-full max-w-none px-4 sm:px-6 lg:px-8 [&_.container]:max-w-none">
             @yield('content')
         </div>
     </div>
@@ -217,14 +217,14 @@
                 </nav>
             </aside>
 
-            <div id="admin-mobile-sidebar" class="hs-overlay fixed start-0 top-0 z-[80] hidden h-full w-full max-w-xs -translate-x-full transform border-e bg-white transition-all duration-300 hs-overlay-open:translate-x-0 lg:hidden dark:border-gray-700 dark:bg-slate-900" role="dialog" tabindex="-1" aria-label="{{ __('admin.navigation.menu') }}">
-                <div class="flex items-center justify-between border-b px-4 py-3 dark:border-gray-700">
+            <div id="admin-mobile-sidebar" class="hs-overlay fixed start-0 top-0 z-[80] hidden h-[100dvh] w-full max-w-xs -translate-x-full transform flex-col overflow-hidden border-e bg-white transition-all duration-300 hs-overlay-open:translate-x-0 hs-overlay-open:flex lg:hidden dark:border-gray-700 dark:bg-slate-900" role="dialog" tabindex="-1" aria-label="{{ __('admin.navigation.menu') }}">
+                <div class="flex shrink-0 items-center justify-between border-b px-4 py-3 dark:border-gray-700">
                     <h2 class="font-bold text-gray-800 dark:text-white">{{ __('admin.navigation.menu') }}</h2>
                     <button type="button" class="inline-flex size-8 items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-600" data-hs-overlay="#admin-mobile-sidebar" aria-label="{{ __('admin.navigation.close_menu') }}">
                         <i class="bi bi-x-lg"></i>
                     </button>
                 </div>
-                <div class="h-[calc(100%-57px)] overflow-y-auto p-4">
+                <div class="min-h-0 flex-1 touch-pan-y overflow-y-auto overscroll-contain p-4 pb-8 [-webkit-overflow-scrolling:touch]">
                     <div class="mb-5 flex items-center gap-3 rounded-xl border border-gray-200 p-3 dark:border-gray-800 dark:bg-slate-800/70">
                         <x-avatar :user="auth('admin')->user()" size="md" class="!ring-0" />
                         <div class="min-w-0 flex flex-col">
@@ -243,7 +243,7 @@
                         <span>{{ __('admin.navigation.menu') }}</span>
                     </button>
                 </div>
-                <div class="w-full px-4 pb-10 pt-8 sm:px-6 lg:px-8">
+                <div class="w-full px-4 pb-10 pt-8 sm:px-6 lg:px-8 [&_.container]:max-w-none">
                     @yield('content')
                 </div>
             </div>

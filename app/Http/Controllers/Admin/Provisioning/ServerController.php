@@ -100,6 +100,9 @@ class ServerController extends AbstractCrudController
     {
         $this->checkPermission('create');
         $data = $request->only(['name', 'address', 'port', 'type', 'username', 'password', 'hostname', 'maxaccounts', 'status']);
+        if (($data['type'] ?? null) === 'domain' && empty($data['address'])) {
+            $data['address'] = $data['hostname'];
+        }
         $server = new Server;
         $server->fill($data);
         $server->save();
@@ -114,9 +117,13 @@ class ServerController extends AbstractCrudController
     {
         $this->checkPermission('update');
         $data = $request->validated();
+        $addressWasProvided = array_key_exists('address', $data);
         $data = array_filter($data, function ($value) {
             return $value !== null;
         });
+        if ($addressWasProvided && ($data['type'] ?? $server->type) === 'domain' && empty($data['address'])) {
+            $data['address'] = $data['hostname'] ?? $server->hostname;
+        }
         $server->fill($data);
         if ($server->type === 'domain') {
             $server->port = 443;

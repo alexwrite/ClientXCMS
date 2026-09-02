@@ -72,7 +72,7 @@ class UpdateServerRequest extends FormRequest
             'status' => ['string', Rule::in(['active', 'hidden', 'unreferenced'])],
             'type' => ['string', Rule::in($types)],
             'hostname' => ['string', 'required'],
-            'address' => ['string', 'required'],
+            'address' => [Rule::requiredIf($this->input('type') !== 'domain'), 'nullable', 'string'],
             'maxaccounts' => ['numeric', 'min:0', 'nullable'],
             'test_mode' => ['nullable'],
         ];

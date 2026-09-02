@@ -19,16 +19,17 @@
 
 @extends('admin.layouts.admin')
 @section('content')
-    <div class="container mx-auto">
+    @php($usesVerticalLayout = auth('admin')->user()->usesVerticalLayout())
+    <div class="w-full max-w-none">
 
         @include('admin.shared.alerts')
 
         <div class="grid grid-cols-6 gap-4">
 
-            @if (!auth('admin')->user()->usesVerticalLayout())
-            <div class="col-span-6 md:col-span-1">
-                <div class="card">
-                    <div class="">
+            @if (!$usesVerticalLayout)
+                <div class="col-span-6 md:col-span-1">
+                    <div class="card">
+                        <div>
 
                         <nav class="hs-accordion-group w-full flex flex-col flex-wrap">
                             <ul>
@@ -60,11 +61,11 @@
                                 @endforeach
                             </ul>
                         </nav>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
-            <div class="col-span-6 {{ auth('admin')->user()->usesVerticalLayout() ? '' : 'md:col-span-5' }}" id="setting">
+            <div class="col-span-6 {{ $usesVerticalLayout ? 'min-w-0 w-full' : 'md:col-span-5' }}" id="setting">
                 @yield('setting')
             </div>
         </div>

@@ -13,6 +13,7 @@ class SchedulerDefinitionTest extends TestCase
 
         foreach ([
             'clientxcms:scheduler-heartbeat',
+            'clientxcms:queue-heartbeat',
             'clientxcms:scheduler-history-prune',
             'invoices:delivery',
             'services:expire',
@@ -28,6 +29,7 @@ class SchedulerDefinitionTest extends TestCase
         }
 
         $this->assertSame('* * * * *', $events['clientxcms:scheduler-heartbeat']->expression);
+        $this->assertSame('* * * * *', $events['clientxcms:queue-heartbeat']->expression);
         $this->assertSame('0 */3 * * *', $events['services:renewals']->expression);
     }
 }

@@ -20,6 +20,7 @@
 namespace App\Console;
 
 use App\Models\Admin\Setting;
+use App\Services\Core\QueueHealthService;
 use App\Services\Core\ScheduledTasksHealthService;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -39,6 +40,10 @@ class Kernel extends ConsoleKernel
                 ScheduledTasksHealthService::HEARTBEAT_SETTING => now(),
             ], null, false);
         })->name('clientxcms:scheduler-heartbeat')->everyMinute();
+
+        $schedule->call(function () {
+            app(QueueHealthService::class)->dispatchHeartbeat();
+        })->name('clientxcms:queue-heartbeat')->everyMinute();
 
         $schedule->call(function () {
             app(ScheduledTasksHealthService::class)->pruneHistory();
@@ -80,6 +85,12 @@ class Kernel extends ConsoleKernel
             ->daily()->at('00:00')
             ->name('clientxcms:telemetry')
             ->sendOutputTo(storage_path('logs/telemetry.log'))->sentryMonitor();
+        $schedule->command('einvoicing:process')
+            ->hourly()->withoutOverlapping()->name('einvoicing:process');
+        $schedule->command('einvoicing:reconcile')
+            ->hourly()->withoutOverlapping()->name('einvoicing:reconcile');
+        $schedule->command('accounting:reconcile')
+            ->hourly()->withoutOverlapping()->name('accounting:reconcile');
     }
 
     /**

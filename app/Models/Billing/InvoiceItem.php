@@ -141,6 +141,7 @@ class InvoiceItem extends Model
         'vat_rate',
         'tax_category',
         'tax_exemption_reason',
+        'operation_category',
         'type',
         'related_id',
         'delivered_at',

@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\Security\ApiKeysController;
 use App\Http\Controllers\Admin\Security\DatabaseController;
 use App\Http\Controllers\Admin\Security\HistoryController;
 use App\Http\Controllers\Admin\Security\LicenseController;
+use App\Http\Controllers\Admin\Security\QueueMonitorController;
 use App\Http\Controllers\Admin\Security\UpdateController;
 use App\Http\Controllers\Admin\Settings\SettingsCoreController;
 use App\Http\Controllers\Admin\Settings\SettingsExtensionController;
@@ -33,6 +34,7 @@ use App\Http\Controllers\Admin\Settings\SettingsSecurityController;
 use App\Models\Admin\Permission;
 use App\Models\Admin\Setting;
 use App\Services\Billing\InvoiceService;
+use App\Services\Core\QueueHealthService;
 use App\Services\SettingsService;
 use App\Services\Store\TaxesService;
 use Carbon\Carbon;
@@ -177,6 +179,9 @@ class SettingServiceProvider extends ServiceProvider
         $service->addCardItem('extensions', 'extensions', 'extensions.title', 'extensions.description', 'bi bi-palette2', action([SettingsExtensionController::class, 'showExtensions']), Permission::MANAGE_EXTENSIONS);
         $service->addCardItem('security', 'history', 'admin.history.title', 'admin.history.description', 'bi bi-archive', action([HistoryController::class, 'index']), 'admin.show_logs');
         $service->addCardItem('security', 'logs', 'actionslog.settings.title', 'actionslog.settings.description', 'bi bi-clock', action([ActionsLogController::class, 'index']), 'admin.show_logs');
+        if (app(QueueHealthService::class)->isManageable()) {
+            $service->addCardItem('security', 'queues', 'admin.queues.title', 'admin.queues.description', 'bi bi-stack', action([QueueMonitorController::class, 'index']), 'admin.show_logs');
+        }
         $this->app['extension']->addAdminMenuItem((new AdminMenuItem('settings', 'admin.settings.index', 'bi bi-gear', 'admin.settings.title', 100, \App\Models\Admin\Permission::ALLOWED)));
     }
 

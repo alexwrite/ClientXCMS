@@ -28,6 +28,9 @@ class InvoiceItemObserver
 {
     public function creating(InvoiceItem $model): void
     {
+        if (blank($model->operation_category)) {
+            $model->operation_category = setting('billing_operation_category', 'services');
+        }
         if ($model->vat_rate === null) {
             $ht = ((float) $model->unit_price_ht + (float) $model->unit_setup_ht);
             $ttc = ((float) $model->unit_price_ttc + (float) $model->unit_setup_ttc);
