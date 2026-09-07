@@ -78,7 +78,8 @@ class Handler extends ExceptionHandler
         if ($exception instanceof ViewException && \Str::contains($exception->getMessage(), 'Vite manifest not found at')) {
             return response("Vite manifest not found. Please execute 'npm install && npm run build'", 404);
         }
-        $status = $this->isHttpException($exception) ? $exception->getStatusCode() : 500;
+        $response = parent::render($request, $exception);
+        $status = $response->getStatusCode();
         $canRenderBrandedPage = in_array($status, self::RENDERED_STATUSES, true)
             && ! $request->expectsJson()
             && ($this->isHttpException($exception) || ! config('app.debug'));
@@ -103,7 +104,7 @@ class Handler extends ExceptionHandler
             }
         }
 
-        return parent::render($request, $exception);
+        return $response;
     }
 
     private function errorView($request, int $status, array $data): mixed
