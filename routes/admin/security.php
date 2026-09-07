@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\Security\ActionsLogController;
 use App\Http\Controllers\Admin\Security\DatabaseController;
 use App\Http\Controllers\Admin\Security\HistoryController;
 use App\Http\Controllers\Admin\Security\LicenseController;
+use App\Http\Controllers\Admin\Security\QueueMonitorController;
 use App\Http\Controllers\Admin\Security\SecurityQuestionController;
 use App\Http\Controllers\Admin\Security\UpdateController;
 use App\Http\Controllers\Admin\Settings\SettingsSecurityController;
@@ -37,6 +38,8 @@ Route::post('/update', [UpdateController::class, 'update'])->name('update');
 Route::post('/update/translations', [UpdateController::class, 'downloadTranslations'])->name('update.translations');
 
 Route::resource('/logs', ActionsLogController::class)->names('logs')->except('edit', 'update', 'delete', 'create', 'store');
+Route::get('/queues', [QueueMonitorController::class, 'index'])->name('queues.index');
+Route::post('/queues/actions', [QueueMonitorController::class, 'action'])->name('queues.action')->middleware('password.confirm:admin.password.confirm');
 Route::get('/license', [LicenseController::class, 'index'])->name('license.index')->middleware('password.confirm:admin.password.confirm');
 Route::get('/api-keys', [\App\Http\Controllers\Admin\Security\ApiKeysController::class, 'index'])->name('api-keys.index')->middleware('password.confirm:admin.password.confirm');
 Route::get('/api-keys/create', [\App\Http\Controllers\Admin\Security\ApiKeysController::class, 'create'])->name('api-keys.create')->middleware('password.confirm:admin.password.confirm');

@@ -18,6 +18,7 @@
  */
 
 use App\Http\Controllers\Admin\Billing\CreditNoteController;
+use App\Http\Controllers\Admin\Billing\ElectronicInvoicingController;
 use App\Http\Controllers\Admin\Billing\InvoiceController;
 use App\Http\Controllers\Admin\Billing\SubscriptionController;
 use App\Http\Controllers\Admin\Core\DashboardController;
@@ -25,6 +26,9 @@ use App\Http\Controllers\Admin\Settings\SettingsBillingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/earn', [DashboardController::class, 'earn'])->name('earn')->middleware('password.confirm:admin.password.confirm');
+Route::get('/electronic-invoicing', [ElectronicInvoicingController::class, 'index'])->name('electronic-invoicing.index');
+Route::get('/electronic-invoicing/{kind}/{id}/download', [ElectronicInvoicingController::class, 'download'])->name('electronic-invoicing.download')->whereIn('kind', ['document', 'period']);
+Route::post('/electronic-invoicing/{kind}/{id}/retry', [ElectronicInvoicingController::class, 'retry'])->name('electronic-invoicing.retry')->whereIn('kind', ['document', 'period', 'accounting']);
 Route::resource('/invoices', InvoiceController::class)->names('invoices')->except('edit');
 Route::get('/invoices/{invoice}/notify', [InvoiceController::class, 'notify'])->name('invoices.notify');
 Route::get('/invoices/{invoice}/pdf', [InvoiceController::class, 'pdf'])->name('invoices.pdf');

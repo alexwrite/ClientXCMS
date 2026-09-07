@@ -56,6 +56,7 @@ class UpdateController
         \View::share('current_item', $item);
         $currentVersion = AppServiceProvider::VERSION;
         $publishedVersions = collect($changelog)->first();
+
         return view('admin.security.update.index', compact('changelogUrl', 'changelog', 'currentVersion', 'publishedVersions'));
     }
 
