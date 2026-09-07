@@ -20,8 +20,8 @@
 namespace App\Theme;
 
 use App\DTO\Core\Extensions\ExtensionThemeDTO;
-use App\Extensions\ExtensionManager;
 use App\Exceptions\ThemeInvalidException;
+use App\Extensions\ExtensionManager;
 use App\Models\Admin\Setting;
 use App\Models\Personalization\MenuLink;
 use App\Models\Personalization\Section;
@@ -484,7 +484,7 @@ class ThemeManager
 
     public static function getContrastColor($hexColor): string
     {
-        if (!is_string($hexColor) || empty($hexColor)) {
+        if (! is_string($hexColor) || empty($hexColor)) {
             return 'black';
         }
         if (str_starts_with($hexColor, 'rgb')) {

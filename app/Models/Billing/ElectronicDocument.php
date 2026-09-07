@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class ElectronicDocument extends Model
 {
     public const STATUS_PENDING = 'pending';
+
     public const STATUS_SUBMITTED = 'submitted';
+
     public const STATUS_DELIVERED = 'delivered';
+
     public const STATUS_REJECTED = 'rejected';
+
     public const STATUS_FAILED = 'failed';
 
     protected $fillable = [
